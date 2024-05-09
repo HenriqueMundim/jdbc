@@ -8,7 +8,7 @@ import model.dao.SellerDaoJDBC;
 
 public class DaoFactory {
     public static IDepartmentDao createDepartmentDao() {
-        return new DepartmentDaoJDBC();
+        return new DepartmentDaoJDBC(DB.getConnection());
     }
 
     public static ISellerDao createSellerDao() {
