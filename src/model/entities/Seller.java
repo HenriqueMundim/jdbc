@@ -12,6 +12,8 @@ public class Seller {
 
     private Department department;
 
+    public Seller() {}
+
     public Seller(int id, String name, String email, LocalDate birthDate, double salary, Department department) {
         this.id = id;
         this.name = name;
