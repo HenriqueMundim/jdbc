@@ -33,5 +33,8 @@ public class Application {
         Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", LocalDate.now(), 4000.0, department);
         sellerDao.insert(newSeller);
 
+        System.out.println("TEST seller Update");
+        Seller updatedSeller = new Seller(1, "Henrique", "henrique@gmail.com", LocalDate.now(), 150000.00, department);
+        sellerDao.update(updatedSeller);
     }
 }
