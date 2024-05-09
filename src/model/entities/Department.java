@@ -1,15 +1,11 @@
-package domain.entities;
+package model.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 public class Department implements Serializable {
     private int id;
     private String name;
-
-//    List<Seller> sellers = new ArrayList<>();
 
     public Department(int id, String name) {
         this.id = id;
