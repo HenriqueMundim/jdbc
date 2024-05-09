@@ -14,4 +14,12 @@ public class DepartmentConverter {
 
         return department;
     }
+
+    public static Department convertOnlyDepartmentEntity(ResultSet result) throws SQLException {
+        Department department = new Department();
+        department.setId(result.getInt("Id"));
+        department.setName(result.getString("Name"));
+
+        return department;
+    }
 }

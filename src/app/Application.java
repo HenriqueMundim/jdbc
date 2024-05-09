@@ -53,8 +53,11 @@ public class Application {
 //        System.out.println("TEST Department update");
 //        departmentDao.update(new Department(5, "Games"));
 
-        System.out.println("TEST Department delete");
-        departmentDao.deleteById(5);
+//        System.out.println("TEST Department delete");
+//        departmentDao.deleteById(5);
 
+        System.out.println("TEST Department findById");
+        Department dp = departmentDao.findById(4);
+        System.out.println(dp);
     }
 }
