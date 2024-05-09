@@ -4,17 +4,17 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class Seller {
-    private int id;
+    private Integer id;
     private String name;
     private String email;
     private LocalDate birthDate;
-    private double salary;
+    private Double salary;
 
     private Department department;
 
     public Seller() {}
 
-    public Seller(int id, String name, String email, LocalDate birthDate, double salary, Department department) {
+    public Seller(Integer id, String name, String email, LocalDate birthDate, Double salary, Department department) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -23,11 +23,11 @@ public class Seller {
         this.department = department;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -55,11 +55,11 @@ public class Seller {
         this.birthDate = birthDate;
     }
 
-    public double getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
     }
 
@@ -80,7 +80,7 @@ public class Seller {
             return false;
         }
         Seller seller = (Seller) other;
-        return id == seller.id;
+        return id.equals(seller.id);
     }
 
     @Override
