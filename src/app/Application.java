@@ -47,8 +47,11 @@ public class Application {
 //        int deleteId = sc.nextInt();
 //        sellerDao.deleteById(deleteId);
 
-        System.out.println("TEST Department insert");
-        departmentDao.insert(newDepartment);
+//        System.out.println("TEST Department insert");
+//        departmentDao.insert(newDepartment);
+
+        System.out.println("TEST Department update");
+        departmentDao.update(new Department(5, "Games"));
 
     }
 }
