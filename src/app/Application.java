@@ -36,5 +36,11 @@ public class Application {
         System.out.println("TEST seller Update");
         Seller updatedSeller = new Seller(1, "Henrique", "henrique@gmail.com", LocalDate.now(), 150000.00, department);
         sellerDao.update(updatedSeller);
+
+        System.out.println("TEST seller deleteById");
+        System.out.println("Enter with ID:");
+        int deleteId = sc.nextInt();
+        sellerDao.deleteById(deleteId);
+
     }
 }
