@@ -1,6 +1,7 @@
 package model.dao;
 
 import model.entities.Department;
+import model.entities.Seller;
 
 import java.sql.Connection;
 import java.util.List;
@@ -29,12 +30,12 @@ public class SellerDaoJDBC implements ISellerDao{
     }
 
     @Override
-    public Department findById(Integer id) {
+    public Seller findById(Integer id) {
         return null;
     }
 
     @Override
-    public List<Department> findAll() {
+    public List<Seller> findAll() {
         return List.of();
     }
 }
