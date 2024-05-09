@@ -5,12 +5,16 @@ import db.DbException;
 import infra.converters.DepartmentConverter;
 import infra.converters.SellerConverter;
 import model.entities.Department;
+import model.entities.Seller;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DepartmentDaoJDBC implements IDepartmentDao {
 
@@ -112,6 +116,28 @@ public class DepartmentDaoJDBC implements IDepartmentDao {
 
     @Override
     public List<Department> findAll() {
-        return List.of();
+        PreparedStatement st = null;
+        ResultSet rs = null;
+
+        try {
+            st = conn.prepareStatement(
+                    "SELECT * "
+                            + "FROM department "
+            );
+            rs = st.executeQuery();
+
+            List<Department> departments = new ArrayList<>();
+
+            while (rs.next()) {
+                departments.add(DepartmentConverter.convertOnlyDepartmentEntity(rs));
+            }
+            return departments;
+
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        } finally {
+            DB.closeStatement(st);
+            DB.closeResultSet(rs);
+        }
     }
 }
