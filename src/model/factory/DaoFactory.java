@@ -1,5 +1,6 @@
 package model.factory;
 
+import db.DB;
 import model.dao.DepartmentDaoJDBC;
 import model.dao.IDepartmentDao;
 import model.dao.ISellerDao;
@@ -11,6 +12,6 @@ public class DaoFactory {
     }
 
     public static ISellerDao createSellerDao() {
-        return  new SellerDaoJDBC();
+        return  new SellerDaoJDBC(DB.getConnection());
     }
 }

@@ -2,9 +2,17 @@ package model.dao;
 
 import model.entities.Department;
 
+import java.sql.Connection;
 import java.util.List;
 
 public class SellerDaoJDBC implements ISellerDao{
+
+    private Connection conn;
+
+    public SellerDaoJDBC(Connection conn) {
+        this.conn = conn;
+    }
+
     @Override
     public void insert(Department department) {
 

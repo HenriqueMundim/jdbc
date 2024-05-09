@@ -21,7 +21,7 @@ public class DB {
         }
     }
 
-    private static Connection getConnection() {
+    public static Connection getConnection() {
         try {
             if (conn == null) {
                 Properties props = loadProperties();
