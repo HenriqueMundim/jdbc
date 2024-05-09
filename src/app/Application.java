@@ -3,8 +3,10 @@ package app;
 import db.DB;
 import model.dao.ISellerDao;
 import model.dao.SellerDaoJDBC;
+import model.entities.Department;
 import model.entities.Seller;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,6 +15,7 @@ public class Application {
         Scanner sc = new Scanner(System.in);
 
         ISellerDao sellerDao = new SellerDaoJDBC(DB.getConnection());
+        Department department = new Department(2, null);
 
         System.out.println("TEST seller findById");
         System.out.println("Enter with ID:");
@@ -25,5 +28,10 @@ public class Application {
         for (Seller s : sellers) {
             System.out.println(s);
         }
+
+        System.out.println("TEST seller insert");
+        Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", LocalDate.now(), 4000.0, department);
+        sellerDao.insert(newSeller);
+
     }
 }

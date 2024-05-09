@@ -7,10 +7,8 @@ import infra.converters.SellerConverter;
 import model.entities.Department;
 import model.entities.Seller;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.temporal.ChronoField;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,12 +23,33 @@ public class SellerDaoJDBC implements ISellerDao{
     }
 
     @Override
-    public void insert(Department department) {
+    public void insert(Seller seller) {
+        PreparedStatement st = null;
 
+        try {
+            st = conn.prepareStatement(
+                "INSERT INTO seller "
+                    + "(Name, Email, BirthDate, BaseSalary, DepartmentId) "
+                    + "VALUES "
+                    + "(?, ?, ?, ?, ?)"
+            );
+            st.setString(1, seller.getName());
+            st.setString(2, seller.getEmail());
+            st.setDate(3, Date.valueOf(seller.getBirthDate()));
+            st.setDouble(4, seller.getSalary());
+            st.setInt(5, seller.getDepartment().getId());
+
+            st.execute();
+
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        } finally {
+            DB.closeStatement(st);
+        }
     }
 
     @Override
-    public void update(Department department) {
+    public void update(Seller seller) {
 
     }
 
