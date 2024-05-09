@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class DepartmentConverter {
 
-    public static Department DepartmentConverter(ResultSet result) throws SQLException {
+    public static Department convert(ResultSet result) throws SQLException {
         Department department = new Department();
         department.setId(result.getInt("Id"));
         department.setName(result.getString("Name"));

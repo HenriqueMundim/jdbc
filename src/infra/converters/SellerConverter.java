@@ -12,6 +12,7 @@ public class SellerConverter {
         Seller seller = new Seller();
         seller.setId(result.getInt("Id"));
         seller.setName(result.getString("Name"));
+        seller.setEmail(result.getString("Email"));
         seller.setBirthDate(result.getDate("BirthDate").toLocalDate());
         seller.setSalary(result.getDouble("BaseSalary"));
         seller.setDepartment(department);
